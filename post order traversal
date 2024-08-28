@@ -1,0 +1,19 @@
+function postOrderTraversalIterativeSingleStack(root):
+    if root is null:
+        return
+    
+    stack = empty stack
+    lastVisited = null
+    current = root
+    
+    while stack is not empty or current is not null:
+        if current is not null:
+            stack.push(current)
+            current = current.left
+        else:
+            peekNode = stack.peek()
+            if peekNode.right is not null and peekNode.right is not lastVisited:
+                current = peekNode.right
+            else:
+                visit(peekNode)
+                lastVisited = stack.pop()
